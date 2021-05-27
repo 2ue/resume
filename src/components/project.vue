@@ -2,7 +2,7 @@
     <div class="m_in projects f_topbdr">
         <h2 class="f_tac mod_ttl">{{title}}</h2>
         <div class="project_box">
-            <div class="project_list f_left" v-for="project in projects">
+            <div class="project_list f_left" v-for="(project, i) in projects" :key="i">
                 <p class="project_name" :title="project.description">
                     <a :href="project.html_url">{{project.name}}</a>
                 </p>

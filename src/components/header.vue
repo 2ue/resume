@@ -2,11 +2,11 @@
     <div class="m_in f_clear header f_topbdr">
         <div class="header_left f_left">
             <span class="f_dib f_disselected header_photo">
-                <img src="../assets/photo.png">
+                <img src="https://dummyimage.com/160x160/000/fff">
             </span>
             <span class="f_dib header_text">
                 <label class="hear_name f_dbk">{{name}}</label>
-                <label class="hear_year f_dbk">{{workTime}}前端开发经验</label>
+                <label class="hear_year f_dbk">{{workTime}}开发经验</label>
                 <label class="hear_job f_dbk">{{workPosition}}</label>
             </span>
         </div>
@@ -31,18 +31,17 @@
         name: 'myHeader',
         data() {
             return {
-                name: '杰远飞',
-                workYear: '2014-11',
+                name: '杰XX',
+                workYear: '2000-11',
                 workPosition: '前端开发工程师',
                 sex: '男',
-                telphone: 13508391424,
-                address: '重庆市渝北区大竹林',
-                qq: 2429886596,
-                mail: 'jie746635835@163.com'
+                telphone: '1350XXXXXX',
+                address: '重庆市XXXXXXX',
+                qq: 'xxxxxxxxx',
+                mail: 'XXXXXX@tencent.com'
             }
         },
         computed: {
-
             workTime: function () {
                 let _self = this;
                 let allMonth, newYear, newMonth;
@@ -100,8 +99,8 @@
     .header_photo {
         margin: 25px 45px 25px 30px;
         vertical-align: top;
-        width: 165px;
-        height: 165px;
+        width: 160px;
+        height: 160px;
         overflow: hidden;
         border-radius: 50%;
         border: 2px solid #fff;

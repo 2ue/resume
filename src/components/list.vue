@@ -1,15 +1,15 @@
 <template>
     <div class="m_in list f_topbdr">
-        <div class="list_box f_clear" v-for="list in lists" :class="list.className">
+        <div class="list_box f_clear" v-for="(list, i) in lists" :key="i" :class="list.className">
             <div class="f_left f_tac list_ttl">
                 <span class="f_dib">{{list.title}}</span>
             </div>
             <div class="f_left list_content">
-                <div class="list_i" v-for="item in list.item">
+                <div class="list_i" v-for="(item, j) in list.item" :key="j">
                     <p class="list_i_headr">
-                        <span class="f_dib" :style="{'width':item.headerWidth}" v-for="headerTtl in item.header">{{headerTtl}}</span>
+                        <span class="f_dib" :style="{'width':item.headerWidth}" v-for="(headerTtl, l) in item.header" :key="l">{{headerTtl}}</span>
                     </p>
-                    <p class="list_i_info" v-for="content in item.content">{{content}}</p>
+                    <p class="list_i_info" v-for="(content, m) in item.content" :key="m">{{content}}</p>
                 </div>
             </div>
         </div>
@@ -22,15 +22,6 @@
         name: 'myList',
         data() {
             return {
-                name: '杰远飞',
-                workYear: 2,
-                workPosition: '前端开发工程师',
-                age: 25,
-                sex: '男',
-                telphone: 13508391424,
-                address: '重庆市渝北区大竹林',
-                qq: 2429886596,
-                mail: 'jie746635835@163.com',
                 lists: [
                     {
                         title: '教育经历',
@@ -38,12 +29,12 @@
                             {
                                 headerWidth: '33.33%',
                                 header: [
-                                    '2015年本科毕业',
-                                    '重庆理工大学',
-                                    '工业设计专业'
+                                    '2000年本科毕业',
+                                    'XXXX大学',
+                                    'XXXX专业'
                                 ],
                                 content: [
-                                    '大学学习工业设计相关课程，毕业后从事前端开发工作至今'
+                                    '大学学习XXXX相关课程，毕业后从事前端开发工作至今'
                                 ]
                             }
                         ]
@@ -54,7 +45,7 @@
                                 headerWidth: '33.33%',
                                 header: [
                                     '2017.03 - 至今',
-                                    '中移物联网',
+                                    'XXXXX公司',
                                     '前端开发工程师'
                                 ],
                                 content: [
@@ -65,8 +56,8 @@
                             {
                                 headerWidth: '33.33%',
                                 header: [
-                                    '2016.02 - 2017.03',
-                                    '重庆博恩软件公司',
+                                    '2013.02 - 2017.03',
+                                    'XXXXXX',
                                     '前端开发工程师'
                                 ],
                                 content: [
@@ -77,8 +68,8 @@
                             {
                                 headerWidth: '33.33%',
                                 header: [
-                                    '2014.11 - 2016.02',
-                                    '重庆昌辉旅游文化机构',
+                                    '2010.11 - 2016.02',
+                                    'XXXX公司',
                                     '前端开发工程师'
                                 ],
                                 content: [
@@ -88,23 +79,19 @@
                             }
                         ]
                     }
-                    // , {
-                    //     title: '专业技能',
-                    //     className: 'list-box-2',
-                    //     item: [
-                    //         {
-                    //             content: [
-                    //                 '工业设计出身，精通PS，有良好的审美',
-                    //                 '擅长HTML/CSS/JQ，对H5和CSS3有掌握',
-                    //                 '熟练使用原生JS，如函数化编程，面向对象，作用域，CMD&AMD等',
-                    //                 'gulp，webpack有所涉猎',
-                    //                 '使用VUE写过一些小项目(组件)，已发布到了github上，了解过REACT',
-                    //                 '版本管理工具：在工作中使用SVN，平时自己折腾使用GIT',
-                    //                 '使用过一些前端的流行库，如underscore'
-                    //             ]
-                    //         }
-                    //     ]
-                    // }
+                    , {
+                        title: '专业技能',
+                        className: 'list-box-2',
+                        item: [
+                            {
+                                content: [
+                                    '精通XXXXXXX',
+                                    '精通XXXXXXX',
+                                    '擅长XXXXXXX',
+                                ]
+                            }
+                        ]
+                    }
                     // , {
                     //     title: '自我评价',
                     //     className: 'list-box-2',
