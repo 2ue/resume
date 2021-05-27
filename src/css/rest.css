@@ -1,0 +1,546 @@
+/**
+ * 当`body`宽度大于`html`宽度时，某些浏览器会出现内部滚动条，所以给`html、body`设置宽度100%。
+ * 取消部分浏览器点击有阴影。
+ * 优化移动端滚动事件。
+*/
+
+html,
+body {
+    width: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+img,
+fieldset,
+hr,
+legend,
+p,
+pre,
+table,
+thead,
+tbody,
+th,
+td,
+th,
+form,
+input,
+select,
+textarea,
+button {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body {
+    /*让页面里的字体变清晰,抗锯齿*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font: 12px/1.5 Microsoft YaHei, Arial, Helvetica, sans-serif;
+}
+
+
+/*继承父级元素属性*/
+
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+select,
+button,
+option,
+textarea,
+optgroup {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    color: inherit;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:active,
+a:hover {
+    outline: none;
+}
+
+a:focus {
+    outline: none;
+    -moz-outline: none;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+img {
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+    border: none;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+i,
+em,
+b,
+strong {
+    font-weight: normal;
+    font-style: normal;
+}
+
+input,
+select,
+textarea,
+button {
+    /* 使得表单元素在ie下能继承字体大小 */
+    font-size: 100%;
+    border: none;
+    background: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    /*修正select盒模型不一致问题*/
+    box-sizing: content-box;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+    /*解决outline火狐下失效问题*/
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow-y: auto;
+    resize: none;
+}
+
+a,
+input[type=button],
+input[type=submit],
+input[type=reset],
+button {
+    cursor: pointer;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #cbcbcb;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    opacity: 1;
+    color: #cbcbcb;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #cbcbcb;
+}
+
+select::-ms-expand {
+    /*IE兼容*/
+    display: none;
+}
+
+
+/* project style */
+
+
+/* m_表示模块 */
+
+
+/* f_表示功能 */
+
+
+/* u_表示UI */
+
+.m_out {
+    width: 100%;
+    min-width: 1080px;
+}
+
+.m_in {
+    width: 1080px;
+    margin: 0 auto;
+}
+
+.f_clear {
+    zoom: 1;
+}
+
+.f_clear:before,
+.f_clear:after {
+    display: table;
+    content: '';
+}
+
+.f_clear:after {
+    clear: both;
+}
+
+.f_dib {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    _display: inline;
+}
+
+.f_dbk {
+    display: block;
+}
+
+.f_hide {
+    display: none;
+}
+
+.f_tal {
+    text-align: left;
+}
+
+.f_tac {
+    text-align: center;
+}
+
+.f_tar {
+    text-align: right;
+}
+
+.f_filter {
+    opacity: .5;
+    filter: alpha(opacity=50);
+    -moz-opacity: .5;
+    -khtml-opacity: .5;
+}
+
+.f_hdmx {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.f_float {
+    display: inline-block;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    _display: inline;
+    text-spacing: -3px;
+}
+
+.f_left {
+    float: left;
+}
+
+.f_right {
+    float: right;
+}
+
+
+/*修复margin-top被父元素‘继承’问题*/
+
+.f_topbdr {
+    border-top: 1px solid transparent;
+}
+
+.f_disselected {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.box_shadow {
+    box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
+    /*firefox*/
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
+    /*webkit*/
+}
+
+.box_shadow_2 {
+    box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
+    /*firefox*/
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
+    /*webkit*/
+}
+
+.icon {
+    vertical-align: top;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    _display: inline;
+}
+
+
+/* vue 隐藏 */
+
+[v-cloak] {
+    display: none;
+}
+
+
+/* 初始化 */
+
+input,
+select,
+textarea,
+button {
+    color: inherit;
+    font-size: 100%;
+    /* 使得表单元素在ie下能继承字体大小 */
+    font: inherit;
+    border: none;
+    background: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+
+/* 忽略它 */
+
+.box {
+    margin: 30px auto;
+    width: 1000px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.input-item {
+    margin-bottom: 10px;
+}
+
+
+/* 正菜 */
+
+
+/* checkbox 1 */
+
+.checkbox {
+    margin-right: 10px;
+}
+
+.checkbox span {
+    display: inline-block;
+    position: relative;
+    height: 20px;
+    padding-left: 28px;
+}
+
+.checkbox span:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    background: #7B7EA2;
+    -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -webkit-transition: background ease-in-out 0.4s;
+    -moz-transition: background ease-in-out 0.4s;
+    transition: background ease-in-out 0.4s;
+}
+
+.checkbox span:after {
+    content: ' ';
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    z-index: 2;
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    background: #E6E6EB;
+    -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -webkit-transition: background ease-in-out 0.4s;
+    -moz-transition: background ease-in-out 0.4s;
+    transition: background ease-in-out 0.4s;
+}
+
+.checkbox input:checked~span:after {
+    /*加勾*/
+    content: '\2714';
+    color: #fff;
+    line-height: 6px;
+    font-size: 22px;
+    background: #7B7EA2;
+    -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .0);
+    -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .0);
+    box-shadow: 0 0 2px 2px rgba(112, 115, 148, .0);
+}
+
+.checkbox input:checked~span:before {
+    background: #E6E6EB;
+}
+
+
+/* checkbox 2 */
+
+.checkbox-2 {
+    margin-right: 10px;
+}
+
+.checkbox-2 span {
+    display: inline-block;
+    position: relative;
+    height: 20px;
+    padding-left: 40px;
+}
+
+.checkbox-2 span:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 35px;
+    height: 20px;
+    border-radius: 10px;
+    background: #7B7EA2;
+    -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -webkit-transition: background ease-in-out 0.4s;
+    -moz-transition: background ease-in-out 0.4s;
+    transition: background ease-in-out 0.4s;
+}
+
+.checkbox-2 span:after {
+    content: ' ';
+    position: absolute;
+    left: 4px;
+    top: 3px;
+    z-index: 2;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #E6E6EB;
+    -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -webkit-transition: left ease-in-out 0.3s;
+    -moz-transition: left ease-in-out 0.3s;
+    transition: left ease-in-out 0.3s;
+}
+
+.checkbox-2 input:checked~span:after {
+    left: 17px;
+}
+
+
+/*.checkbox-2 input:checked ~ span:before{
+    background: #E6E6EB;
+}*/
+
+
+/* radio */
+
+.radio {
+    margin-right: 10px;
+}
+
+.radio span {
+    display: inline-block;
+    position: relative;
+    height: 20px;
+    padding-left: 28px;
+}
+
+.radio span:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #7B7EA2;
+    -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -webkit-transition: background ease-in-out 0.4s;
+    -moz-transition: background ease-in-out 0.4s;
+    transition: background ease-in-out 0.4s;
+}
+
+.radio span:after {
+    content: ' ';
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    z-index: 2;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #E6E6EB;
+    -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    box-shadow: 0 0 2px 2px rgba(112, 115, 148, .4);
+    -webkit-transition: background ease-in-out 0.4s;
+    -moz-transition: background ease-in-out 0.4s;
+    transition: background ease-in-out 0.4s;
+}
+
+.radio input:checked~span:after {
+    background: #7B7EA2;
+    -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .0);
+    -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, .0);
+    box-shadow: 0 0 2px 2px rgba(112, 115, 148, .0);
+}
+
+.radio input:checked~span:before {
+    background: #E6E6EB;
+}
