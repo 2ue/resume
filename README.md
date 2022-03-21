@@ -5,10 +5,6 @@
 ## 队伍名称
 五斗米
 
-## 队员
-- yuanfeijie
-- ericcctang
-- lyntonlin
 
 ## 项目说明
 基于vue-cli（vue2）构建的前端静态项目，可以快速生成个人的简历web网站；
