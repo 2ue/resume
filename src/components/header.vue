@@ -31,7 +31,7 @@
         name: 'myHeader',
         data() {
             return {
-                name: '杰XX',
+                name: 'XXX',
                 workYear: '2000-11',
                 workPosition: '前端开发工程师',
                 sex: '男',
@@ -46,6 +46,7 @@
                 let _self = this;
                 let allMonth, newYear, newMonth;
                 allMonth = _self.getMonth();
+                console.log('111', allMonth);
                 newYear = parseInt(allMonth / 12) > 0 ? parseInt(allMonth / 12) + '年' : '';
                 newMonth = (allMonth % 12) > 0 ? (allMonth % 12) + '个月' : '';
                 return (newYear + newMonth);
